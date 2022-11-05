@@ -3,7 +3,7 @@
 @section('contents')
 
 @if($errors->any())
-<div>
+<div class='aler alert-danger'>
     <ul>
         @foreach($errors->all() as $error)
         <li>{{$error}}</li>
@@ -21,22 +21,35 @@
 
 <form action="/submit" method="post">
 @csrf
-<div class="form">
-<label for="name"> имя</label>
-<input type="text" name="name" placeholder='Введите имя' id="name">
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" name="name" placeholder='Enter your name' id="name" class="form-control">
 </div>
 
-<div class="form">
+<div class="form-group">
 <label for="email">email</label>
-<input type="text" name="email" placeholder='Введите email' id="email">
+<input type="text" name="email" placeholder='Enter your email' id="email" class="form-control">
 </div>
 
-<div class="form">
-<label for="message"></label>
-<textarea id="message" name="message" placeholder='Введите сообщение'></textarea>
+<div class="form-group">
+<label for="message">message</label>
+<textarea id="message" name="message" placeholder='Enter your message' class="form-control"></textarea>
 </div>
-<button type="submit" name="button">Отправить</button>
+<button type="submit" name="button" class="btn btn-success mt-3">Submit</button>
 </form>
 
 @endsection
 
+@section('bottom')
+<footer class=" text-center  position-absolute top-100 start-50 translate-middle fsticky-bottom">
+@foreach($data as $el)
+
+<div class="alert alert-info">
+
+<p>name: {{$el->name}}  email: {{$el->email}} message: {{$el->message}} create date: {{$el->created_at}}</p>
+
+</div>
+ 
+@endforeach
+
+@endsection

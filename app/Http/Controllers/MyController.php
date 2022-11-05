@@ -22,8 +22,18 @@ $myDatabase->email = $req ->input('email');
 $myDatabase->message = $req ->input('message');
 
 $myDatabase->save();
-return redirect()->route("first_project")->with('success', 'База данных пополнилась');
+return redirect()->route("first_project")->with('success', 'Submission was completed');
 
 }
-    
+
+public function messageData() {
+   $myDatabase = new myDatabase();
+   return view('messages', ['data'=>$myDatabase->all()]);
+} 
+
+public function Main() {
+   $myDatabase = new myDatabase();
+   return view('first_project', ['data'=>$myDatabase->all()]);
+} 
+
 }
