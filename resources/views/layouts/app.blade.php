@@ -8,10 +8,10 @@
     <title>First_Project</title>
 </head>
 <body>
-    <div class="container mt-5 ">
+    <div class="container mt-5">
    @yield('contents') 
    </div>
-
+   
    <div class="container mt-5">
    @yield('bottom') 
    </div>

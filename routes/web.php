@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'MyController@Main')->name('first_project');
+Route::get('/', 'MyController@Show')->name('first_project');
 
-Route::get('/message', 'MyController@messageData');
+
 Route::post('/submit', 'MyController@submit');
 

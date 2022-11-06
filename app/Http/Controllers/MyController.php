@@ -11,7 +11,7 @@ class MyController extends Controller{
  public function submit(Request $req){
 
  $validation = $req->validate([
-    'name' => 'required|max:15',
+    'name' => 'required',
     'email' => 'required|max:50|email:rfc,dns',
     'message' => 'required|max:150',
  ]);
@@ -26,12 +26,7 @@ return redirect()->route("first_project")->with('success', 'Submission was compl
 
 }
 
-public function messageData() {
-   $myDatabase = new myDatabase();
-   return view('messages', ['data'=>$myDatabase->all()]);
-} 
-
-public function Main() {
+public function Show() {
    $myDatabase = new myDatabase();
    return view('first_project', ['data'=>$myDatabase->all()]);
 } 
